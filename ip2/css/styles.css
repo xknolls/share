@@ -53,6 +53,7 @@ figcaption {
   text-transform: uppercase;
   text-align: center;
   margin-top: 0;
+  text-shadow: 2px 2px 1px rgb(0, 0, 0);
 }
 
 .container div {
@@ -71,9 +72,9 @@ figcaption {
 }
 
 .container figure img {
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
+  
+  width    : 800px;
+  clip-path: ellipse(50% 50%);
 }
 
 /* ********** SFX ********** */
@@ -180,4 +181,19 @@ a.opacity-color {
 
 .leo a.opacity-color {
   background-color: #77725c;
+}
+
+
+
+/*=========================MODIF version mobile=========================*/
+
+@media screen and (max-width:678px) {
+  .container {
+    display              : flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  div{
+    margin-bottom: 1em;
+  }
 }
