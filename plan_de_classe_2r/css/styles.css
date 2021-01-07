@@ -1,0 +1,183 @@
+:root {
+  --color-default: #222;
+  --light-color: #fff;
+}
+
+/* ******************** GENERAL STYLES ******************** */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.6em;
+  font-family: "Exo 2", Arial, sans-serif;
+  color: var(--light-color);
+  background-color: var(--color-default);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+figure,
+figcaption {
+  margin: 0;
+}
+
+/* ******************** TP CLASSES ******************** */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr 1fr;
+  gap: 5% 5%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container h1 {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+  font-size: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0;
+}
+
+.container div {
+  width: 80%;
+  clip-path: ellipse(50% 50%);
+}
+
+.container div a {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.container div p {
+  display: none;
+}
+
+.container figure img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* ********** SFX ********** */
+
+.highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight h2 {
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  top: 33%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 3px var(--color-default);
+}
+
+.highlight h2 a {
+  font-size: 1.6em;
+  text-decoration: none;
+  color: orangered;
+  background: rgba(207, 185, 151, 0.6);
+  padding: 0 0.5em;
+  border-radius: 15px;
+}
+
+/* ***** SFX IMG HOVER ***** */
+
+.highlight .highlight-overlay {
+  z-index: 100;
+  color: var(--light-color);
+  text-shadow: 2px 2px 1px var(--color-default);
+  position: absolute;
+  left: 1em;
+  right: 1em;
+  bottom: 33%;
+  transform: translateY(50%);
+  font-size: 1.2em;
+  text-align: center;
+  height: 0;
+  opacity: 0;
+  will-change: transform;
+  transform: translateY(100%);
+  transition: transform 0.5s linear;
+}
+
+.highlight a:hover + .highlight-overlay,
+.highlight a:focus + .highlight-overlay,
+.highlight a:active + .highlight-overlay {
+  transform: translateY(0);
+  height: auto;
+  opacity: 1;
+}
+
+a.opacity-color {
+  display: inline-block;
+}
+
+.opacity-color img {
+  opacity: 1;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.opacity-color:hover img,
+.opacity-color:focus img {
+  opacity: 0.2;
+  transform: scale(1.3);
+  transition: transform 0.5s linear;
+}
+
+/* ***** STUDENT COLORS ***** */
+
+.jenny a.opacity-color {
+  background-color: pink;
+}
+
+.robin a.opacity-color {
+  background-color: #0b38b5;
+}
+
+.quentin a.opacity-color {
+  background-color: #e69a11;
+}
+
+.loic a.opacity-color {
+  background-color: #e9d35b;
+}
+
+.deborah a.opacity-color {
+  background-color: #13213c;
+}
+
+.brahim a.opacity-color {
+  background-color: #000;
+}
+
+.christopher a.opacity-color {
+  background-color: #b8041f;
+}
+
+.leo a.opacity-color {
+  background-color: #77725c;
+}
