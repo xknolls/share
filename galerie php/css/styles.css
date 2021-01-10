@@ -5,3 +5,84 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: darkgray;
+}
+
+img {
+  max-width: 360px;
+}
+
+h1 {
+  background-color: rgb(49, 49, 49);
+  display: inline-block;
+  color: rgb(233, 200, 16);
+  margin-bottom: 0;
+  margin-top: 1.5em;
+}
+
+h2 {
+  margin-top: 0;
+  color: white;
+  font-size: 0.8em;
+}
+
+.hashtag {
+
+}
+
+.hashtag p::before {
+  content: '#';
+  color: white;
+  background-color: rgb(49, 49, 49);
+}
+
+.hashtag p {
+  display: inline-block;
+  font-size: 1.3em;
+  border: solid 1px black;
+  background-color: rgb(233, 200, 16);
+  margin: 0.2em 0;
+}
+
+.section1 {
+  display: none;
+}
+
+.section2 {
+  background-color: transparent;
+  background-image: url('../img/back.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+nav {
+  margin: 2em 0 ;
+}
+
+nav a {
+  font-size: 1.3em;
+  border: solid 1px black;
+  background-color: rgb(49, 49, 49);
+  color: white;
+  text-decoration: none;
+}
+
+.section3 {
+  background-color: white;
+}
+
+.section4 {
+
+}
+
+.section5 {
+  background-color: white;
+}
+
+.section 6 {
+
+}
