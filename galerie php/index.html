@@ -5,6 +5,7 @@
 		<title>The Walking Dead Universe</title>
 		<meta name="description" content="Mise en place d'une galerie en PHP">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
@@ -13,8 +14,7 @@
 
 		<section class="section1" id="s1">
 			<footer class="footer">
-				<a><a href="https://gretaprovence-extranet.fr/accueil.php" title="En savoir plus sur la formation">Formation Développeur WEB - GRETA</a> - Robin SIMSOLO &copy; - Les photos sont empruntées à <a href="https://www.google.fr/imghp?hl=fr" title="Google images">Google images&copy;</a> & <Facebook&copy; href="https://www.google.fr/imghp?hl=fr" title="Google images">Facebook&copy;</a>
-				<a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+				<a href="https://gretaprovence-extranet.fr/accueil.php" title="En savoir plus sur la formation">Formation Développeur WEB - GRETA</a> - Robin SIMSOLO &copy; - Les photos sont empruntées à <a href="https://www.google.fr/imghp?hl=fr" title="Google images">Google images&copy;</a> & <Facebook&copy; href="https://www.google.fr/imghp?hl=fr" title="Google images">Facebook&copy;</a>
 			</footer>
 		</section>
 
@@ -32,19 +32,19 @@
 				<p>Information sur un fichier</p>
 			</div>
 			<nav>
-				<p><a href="#s3" title="Galerie pour fainéant">Galerie pour fainéant</a></p>
-				<a href="#s5" title="Galerie légendée">Galerie légendée</a>
+				<p><a href="#s3" title="Galerie pour fainéant"><span class="arrow-nav icon-arrow-down2"></span>Galerie pour fainéant</a></p>
+				<a href="#s5" title="Galerie légendée">Galerie légendée<span class="arrow-nav icon-arrow-down2"></span></a>
 			</nav>
 		</section>
-
 		<section class="section3" id="s3">
-			<a href="#s2" title="Haut de page">A</a>
-			<h3 class="h3">Galerie pour fainéant</h3>
-			<p>Le principe est d'ouvrir et de lire le contenu d'un dossier grâce à PHP.</p>
-			<p>Il suffit, ensuite de déposer les nouvelles photos dans le dossier pour mettre la galerie à jour.</p>
-			<p>L'inconvénient est que nous n'avons pas d'alternative textuelle, à moins d'utiliser éventuellement les noms de fichiers si ces derniers sont pertinents (pas simple sans les accents).</p>
+			<a href="#s2" title="Haut de page"><span class="arrow icon-arrow-up2"></span></a>
+			<div class="div-section3">
+				<h3 class="h3">Galerie pour fainéant</h3>
+				<p>Le principe est d'ouvrir et de lire le contenu d'un dossier 	grâce à PHP.</p>
+				<p>Il suffit, ensuite de déposer les nouvelles photos dans le dossier pour mettre la galerie à jour.</p>
+				<p>L'inconvénient est que nous n'avons pas d'alternative textuelle, à moins d'utiliser éventuellement les noms de fichiers si ces derniers sont pertinents (pas simple sans les accents).</p>
+			</div>
 		</section>
-
 		<section class="section4" id="s4">
 			<img src="img/rick_720.png" alt="Rick Grimes">
 			<img src="img/nick_720.png" alt="Nick Clark">
@@ -55,10 +55,10 @@
 			<img src="img/glenn_720.png" alt="Glenn Rhee">
 			<img src="img/jhon_720.png" alt="Jhon Dorie">
 			<img src="img/morgan_720.png" alt="Morgan Jones">
-			<a href="#s5" title="Galerie légendée">V</a>
+			<a href="#s5" title="Galerie légendée"><span class="arrow icon-arrow-down2"></span></a>
 		</section>
-
 		<section class="section5" id="s5">
+			<a href="#s3" title="Galerie pour fainéant"><span class="arrow icon-arrow-up2"></span></a>
 			<h3 class="h3">Galerie légendée</h3>
 			<p>Les informations de chaque photo sont finalement stockées dans une variable tableau: chaque ligne du tableau correspond à une photo.</p>
 			<p>Chaque ligne contient également un tableau associatif permettant d'accéder aux informations de chaque phoro, à savoir:</p>
@@ -68,9 +68,8 @@
 			</ol>
 			<p>Une boucle sur le tableau principal permet d'accéder aux informations nécessaires à l'affichage de chaque illustration.</p>
 		</section>
-
 		<section class="section6" id="s6">
-			<figure>
+			<figure class="clearfix">
 				<img src="img/nick_720.png" alt="Nick Clark">
 				<figcaption>Nick Clark</figcaption>
 			</figure>
@@ -106,7 +105,7 @@
 				<img src="img/morgan_720.png" alt="Morgan Jones">
 				<figcaption>Morgan Jones</figcaption>
 			</figure>
-			<a href="#s2" title="Haut de page">A</a>
+			<a href="#s2" title="Haut de page"><span class="arrow icon-arrow-up2"></span></a>
 		</section>
 	</body>
 </html>
