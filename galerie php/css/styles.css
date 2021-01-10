@@ -9,6 +9,8 @@ html {
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
+	font-family: 'Oswald', sans-serif;
   background-color: darkgray;
   margin: 0;
 }
@@ -44,11 +46,13 @@ h1 {
   display: inline-block;
   color: rgb(233, 200, 16);
   margin-bottom: 0;
-  margin-top: 1.5em;
+  margin-top: 1em;
+  font-size: 2.5em;
 }
 
 h2 {
   margin-top: 0;
+  margin-bottom: 3em;
   color: white;
   font-size: 0.8em;
 }
@@ -57,6 +61,7 @@ h2 {
   content: '#';
   color: white;
   background-color: rgb(49, 49, 49);
+  padding: 0 0.4em;
 }
 
 .hashtag p {
@@ -79,6 +84,12 @@ nav a {
   text-decoration: none;
 }
 
+.arrow-nav {
+  font-size: 1em;
+  background-color:  rgb(233, 200, 16);
+  padding: 0.25em;
+}
+
 /************************Section 3********************************/
 
 .section3 {
@@ -89,17 +100,12 @@ nav a {
 
 .section3 a {
   position: absolute;
-  top: 3%;
-  left: 49%;
-}
-
-.section3 p {
-  text-align: left;
+  top: 5%;
+  left: 44%;
 }
 
 .div-section3 {
-  margin: 0.8em;
-  margin-bottom: 2EM;
+  margin: 6.7em 0.8em;
 }
 
 .div-section3 p{
@@ -108,8 +114,16 @@ nav a {
 
 .h3 {
   text-align: left;
-  font-size: 2.5em;
+  font-size: 1.3em;
 }
+
+.section3 p {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
 
 /************************Section 4********************************/
 
@@ -131,9 +145,10 @@ nav a {
 
 .section4 a {
   position: absolute;
-  bottom: 3%;
-  left: 49%;
+  bottom: 5%;
+  left: 44%;
 }
+
 
 /************************Section 5********************************/
 
@@ -145,10 +160,20 @@ nav a {
 
 .section5 a {
   position: absolute;
-  left: 49%;
-  top: 3%;
+  left: 44%;
+  top: 5%;
 }
 
+.div-section5 {
+  margin: 6.7em 0.8em;
+}
+
+.section5 p, ol {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
 
 /************************Section 6********************************/
 
@@ -186,8 +211,8 @@ figcaption {
 
 .section6 a {
   position: absolute;
-  bottom: 3%;
-  left: 49%;
+  bottom: 5%;
+  left: 44%;
 }
 
 .icon-arrow-up2:before {
@@ -202,9 +227,5 @@ figcaption {
   background-color:  rgb(49, 49, 49);
   color: white;
   font-size: 2em;
-}
-
-.arrow-nav {
-  font-size: 1em;
-  background-color:  rgb(233, 200, 16);
+  padding: 0.3em;
 }
