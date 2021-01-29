@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>The Walking Dead Universe</title>
+		<meta name="description" content="Mise en place d'une galerie en PHP">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" href="css/svg.css">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+
+
+		<section class="section1" id="s1">
+			<footer class="footer">
+				<a href="https://gretaprovence-extranet.fr/accueil.php" title="En savoir plus sur la formation">Formation Développeur WEB - GRETA</a> - Robin SIMSOLO &copy; - Les photos sont empruntées à <a href="https://www.google.fr/imghp?hl=fr" title="Google images">Google images&copy;</a> & <Facebook&copy; href="https://www.google.fr/imghp?hl=fr" title="Google images">Facebook&copy;</a>
+			</footer>
+		</section>
+
+		<section class="section2" id="s2">
+			<h1 class="h1">The walking dead</h1>
+			<h2 class="h2">Collections de photos propulsées en PHP</h2>
+			<div class="hashtag">
+				<p> Expressions conditionnelles</p>
+				<p> Boucle foreach</p>
+				<p> Intégration dynamique de contenus</p>
+				<p> Concaténation</p>
+				<p> Variable array</p>
+				<p> Traitement de chaine de caractères</p>
+				<p> Lire un dossier</p>
+				<p> Information sur un fichier</p>
+			</div> 
+			<nav>
+				<p><a href="#s3" title="Galerie pour fainéant" class="button1"><span class="arrow-nav icon-arrow-down2"></span>Galerie pour fainéant</a></p>
+				<a href="#s5" title="Galerie légendée" class="button2">Galerie légendée<span class="arrow-nav icon-arrow-down2"></span></a>
+			</nav>
+		</section>
+		<section class="section3" id="s3">
+			<a href="#s2" title="Haut de page"><span class="arrow icon-arrow-up2"></span></a>
+			<div class="div-section3">
+				<h3 class="h3">Galerie pour fainéant</h3>
+				<p>Le principe est d'ouvrir et de lire le contenu d'un dossier 	grâce à PHP.</p>
+				<p>Il suffit, ensuite de déposer les nouvelles photos dans le dossier pour mettre la galerie à jour.</p>
+				<p>L'inconvénient est que nous n'avons pas d'alternative textuelle, à moins d'utiliser éventuellement les noms de fichiers si ces derniers sont pertinents (pas simple sans les accents).</p>
+			</div>
+		</section>
+		<section class="section4" id="s4">
+			<img src="img/rick_720.png" alt="Rick Grimes">
+			<img src="img/nick_720.png" alt="Nick Clark">
+			<img src="img/daryl_720.png" alt="Daryl Dixon">
+			<img src="img/victor_720.png" alt="Victor Strand">
+			<img src="img/jessie_720.png" alt="Jessie Anderson">
+			<img src="img/alicia_720.png" alt="Alicia Clark">
+			<img src="img/glenn_720.png" alt="Glenn Rhee">
+			<img src="img/jhon_720.png" alt="Jhon Dorie">
+			<img src="img/morgan_720.png" alt="Morgan Jones">
+			<a href="#s5" title="Galerie légendée"><span class="arrow icon-arrow-down2"></span></a>
+		</section>
+		<section class="section5" id="s5">
+			<a href="#s3" title="Galerie pour fainéant"><span class="arrow icon-arrow-up2"></span></a>
+			<div class="div-section5">
+				<h3 class="h3">Galerie légendée</h3>
+				<p>Les informations de chaque photo sont finalement stockées dans une variable tableau: chaque ligne du tableau correspond à une photo.</p>
+				<p>Chaque ligne contient également un tableau associatif permettant d'accéder aux informations de chaque phoro, à savoir:</p>
+				<ol>
+					<li>Nom du fichier</li>
+					<li>Légende</li>
+				</ol>
+				<p>Une boucle sur le tableau principal permet d'accéder aux informations nécessaires à l'affichage de chaque illustration.</p>
+			</div>
+		</section>
+		<section class="section6" id="s6">
+			<figure class="clearfix">
+				<img src="img/nick_720.png" alt="Nick Clark">
+				<figcaption>Nick Clark</figcaption>
+			</figure>
+			<figure>
+				<img src="img/rick_720.png" alt="Rick Grimes">
+				<figcaption>Rick Grimes</figcaption>
+			</figure>
+			<figure>
+				<img src="img/victor_720.png" alt="Victor Strand">
+				<figcaption>Victor Strand</figcaption>
+			</figure>
+			<figure>
+				<img src="img/daryl_720.png" alt="Daryl Dixon">
+				<figcaption>Daryl Dixon</figcaption>
+			</figure>
+			<figure>
+				<img src="img/alicia_720.png" alt="Alicia Clark">
+				<figcaption>Alicia Clark</figcaption>
+			</figure>
+			<figure>
+				<img src="img/jessie_720.png" alt="Jessie Anderson">
+				<figcaption>Jessie Anderson</figcaption>
+			</figure>
+			<figure>
+				<img src="img/jhon_720.png" alt="Jhon Dorie">
+				<figcaption>Jhon Dorie</figcaption>
+			</figure>
+			<figure>
+				<img src="img/glenn_720.png" alt="Glenn Rhee">
+				<figcaption>Glenn Rhee</figcaption>
+			</figure>
+			<figure>
+				<img src="img/morgan_720.png" alt="Morgan Jones">
+				<figcaption>Morgan Jones</figcaption>
+			</figure>
+			<a href="#s2" title="Haut de page"><span class="arrow icon-arrow-up2"></span></a>
+		</section>
+	</body>
+</html>
