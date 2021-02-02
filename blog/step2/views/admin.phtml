@@ -1,0 +1,56 @@
+<div class="row flex-grow-1">
+    <nav class="col-3 bg-light align-self-strech">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link active" href="admin.php">Tableau de bord</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#">Créer un nouvel article</a></li>
+        </ul>
+    </nav>
+    <section class="col-9">
+        <header class="bg-light p-1 rounded text-center">
+            <h1>Tableau de brod</h1>
+            <p>Gestion des articles du blog</p>
+        </header>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <caption>Liste des derniers articles</caption>
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Catégorie</th>
+                        <th>Modifier</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <?php while( $post = $query -> fetch() ) : ?>
+                    <tr>
+                        <td><?= intval($post['id_post']) ?></td>
+                        <td><?= htmlspecialchars($post['date']) ?></td>
+                        <td><?= htmlspecialchars($post['title']) ?></td>
+                        <td><?= htmlspecialchars($post['firstname']) ?></td>
+                        <td><?= htmlspecialchars($post['label']) ?></td>
+                        <td>
+                            <a href="edit.php?id=<?= intval($post['id_post']) ?>" title="Modifier l'article" class="btn btn-warning">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
+                                </svg>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="delet.php?id=<?= intval($post['id_post']) ?>" title="Supprimer l'article" class="btn btn-danger">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endwhile ; ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
