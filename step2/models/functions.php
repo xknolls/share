@@ -2,17 +2,19 @@
 
 
 function connect() {
+
+    require('config/config.php');
+
     // Tenter de se connecter à la base de données
     try {
         $pdo = new PDO(
             // Source de données : DSN (Date Source Name)
-            'mysql:host=localhost;dbname=blog;charset=UTF8;port=3306',
+            'mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=UTF8;port='.DB_PORT.'',
             // Identification
-            'knolls',
+            DB_USER,
             // Mot de passe
-            'CazEKLpwQmh4AjTu'
+            DB_PASSWORD
         );
-    
         /* 
             https://www.php.net/manual/fr/pdostatement.fetch.php 
     
@@ -23,17 +25,6 @@ function connect() {
 
         return $pdo;
     }
-    // Si un problème : on capture l'erreur et on affiche un message
-    /*catch (PDOException $error) {
-        //echo 'Erreur : ' . $error -> getMessage();
-        error_log(
-            // Message
-            $error -> getMessage(),
-            // Envoi dans l'historique d'erreurs défini par PHP
-            0,
-        );
-    }*/
-    
     catch (PDOException $error) {
         //echo 'Erreur : ' . $error -> getMessage();
         error_log(
@@ -43,23 +34,12 @@ function connect() {
             3,
             './log/errors.log'
         );
-    
-    
         // Envoi email à l'adresse choisi :qui plante en l'absence de serveur de mail 
         // error_log('Problème d\'accès à la base données sur quentin.greta',1,'adresse@mail.greta');
-    
-    
-    
-    
-        header('Location:404.php?er=500');
+        header('Location:404.php?er=503');
         exit;
     }
 }
-
-
-
-
-
 
 /**
  * getposts ()
@@ -74,6 +54,7 @@ function getposts() {
     id_post,
     title,
     DATE_FORMAT(date_update, "%e/%c/%Y") AS date, 
+    content,
     label, 
     firstname, 
     lastname 
