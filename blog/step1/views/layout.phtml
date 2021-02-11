@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <meta name="description" content="Interfacer une base données MySQL avec PHP">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="navbar navbar-expand-sm navbar-dark bg-dark px-4">
+        <a class="navbar-brand" href="./">Blog</a>
+        <p class="navbar-text m-0 d-none d-sm-block">L'extension PDO (PHP Data Objects)</p>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir ou fermer le menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto w-auto" id="menu">
+            <nav class="navbar-nav ms-auto">
+                <a class="nav-link" href="#">Acceuil</a>
+                <a class="nav-link active" href="admin">Administration</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container-fluid flex-grow-1 d-flex flex-column pb-5">
+        <?php include 'views/' . $template . '.phtml' ?>
+    </main>
+    <footer class="bg-dark text-center position-relative mt-auto mb-0">
+        <p class="text-light m-0"><a class="text-light" href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p class="text-light m-0">&copy; Elève : Quentin POGGI - Module PHP</p>
+        <p class="text-light m-0">Photos empruntées à <a class="text-light" href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a style="transform : translate(-50%, -100%)" class="btn btn-danger position-absolute top-0 rounded-0 rounded-top" id="goTop" href="#" title="Haut de page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </a>
+
+    </footer>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

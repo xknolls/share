@@ -1,0 +1,76 @@
+<div class="row flex-grow-1">
+    <nav class="col-3 align-self-strech bg-light">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php">Tableau de bord</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="add_post.php">Créer un nouvel article</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="col-9">
+        <header class="p-1 rounded text-center">
+            <h1>Rédiger un article</h1>
+        </header>
+        <form action="" method="POST" class="row g-3 p-5">
+            <div class="col-md-6">
+                <label for="category" class="form-label">Catégorie de l'article</label><br>
+                <?php if (!empty($errors['id_category'])) : ?>
+                    <p class="text-danger bg-dark d-inline-block"><?= $errors['id_category']; ?></p>
+                <?php endif; ?>
+                <select id="id_category" name="id_category" class="form-select">
+                    <option value="">Choisir une catégorie</option>
+                    <?php while ($category = $query_category->fetch()) : ?>
+                        <?php if ($add_post['id_category'] == $category['id_category']) : ?>
+                            <option selected value="<?= intval($category['id_category']); ?>">
+                                <?= htmlspecialchars($category['label']); ?>
+                            </option>
+                        <?php else : ?>
+                            <option value="<?= intval($category['id_category']); ?>">
+                                <?= htmlspecialchars($category['label']); ?>
+                            </option>
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="text" class="form-label">Auteur</label><br>
+                <?php if (!empty($errors['id_user'])) : ?>
+                    <p class="text-danger bg-dark d-inline-block"><?= $errors['id_user']; ?></p>
+                <?php endif; ?>
+                <select id="id_user" name="id_user" class="form-select">
+
+                    <option value="">Choisir un auteur</option>
+                    <?php while ($user = $query_users->fetch()) : ?>
+                        <?php if ($add_post['id_user'] == $user['id_user']) : ?>
+                            <option selected value="<?= intval($user['id_user']); ?>">
+                                <?= htmlspecialchars($user['pseudo']); ?>
+                            </option>
+                        <?php else : ?>
+                            <option value="<?= intval($user['id_user']); ?>">
+                                <?= htmlspecialchars($user['pseudo']); ?>
+                            </option>
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <label for="title" class="form-label">Titre de l'article</label> <br>
+                <input type="text" class="form-control" id="title" name="title" value="">
+            </div>
+
+            <div class="col-12">
+                <label for="texte" class="form-label">Texte</label>
+                <textarea name="content" class="form-control" id="content" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+        </form>
+
+    </section>
+</div>
