@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZooM</title>
     <meta name="description" content="mise en place de la fonctionalitée de zoom depuis des miniatures;">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="themes/dark/css/normalize.css">
+    <link rel="stylesheet" href="themes/dark/css/styles.css">
 </head>
 <body>
     <header class="banner">
@@ -19,6 +18,24 @@
         </nav>
     </header>
     <main>
+        <nav class="choice-gallery-nav">
+            <?php foreach($galleries as $gallerie) :?>
+                <a class="choice-gallery-a" href="?galerie=<?= htmlspecialchars($gallerie) ?>"><?= htmlspecialchars($gallerie) ?></a>
+            <?php endforeach;?>
+        </nav>
+    
+    <section class="gallery-container">
+        <div class="gallery">
+        <?php 
+            foreach($gallery as $image) :
+                echo '<img src="'. $gallery_path . $image['src'] .'" class="img-test">';
+            endforeach;
+            ?>
+        </div>
+        <div>
+            <img class="putaindephotodemerde" src="medias/macro/3.jpg">
+        </div>
+    </section>
 
     </main>
     <footer class="footer">
@@ -27,6 +44,6 @@
         <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
         <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/zoom.js"></script>
 </body>
 </html>
