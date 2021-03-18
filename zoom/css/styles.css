@@ -1,0 +1,132 @@
+:root {
+    --color-default: darkgrey;
+    --dark-color: rgb(31, 31, 31);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/****************** GENERAL *********************/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.banner, 
+.footer  {
+    display: sticky;
+    padding: 0.5em calc((100% - 1200px ) / 2);
+    background-color: var(--dark-color);
+}
+
+.banner a,
+.footer a {
+    color: var(--color-default);
+    text-decoration: none;
+}
+
+/***************************************************************
+                            BANNER
+****************************************************************/
+
+.banner {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.banner-nav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    text-transform: uppercase;
+}
+
+.banner-nav a {
+    margin: 0 1em;
+    padding: 0.5em;
+    border-bottom: solid 2px transparent;
+}
+
+.banner-nav a:hover {
+    background-color: rgba(169, 169, 169, 0.198);
+    border-bottom: darkgray solid 2px;
+}
+
+.banner p {
+    color: var(--color-default);
+}
+
+.site-logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.site-description {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+}
+
+/***************************************************************
+                            FOOTER
+****************************************************************/
+
+.footer {
+    position: relative;
+    text-align: center;
+}
+
+.footer > * {
+    margin: 0;
+    color: var(--color-default);
+}
+
+.footer p {
+    margin: 0.5em;
+}
+
+#goTop {
+    font-size: 2em;
+    width: 1em;
+    height: 1.2em;
+    line-height: 1.2em;
+    position: absolute;
+    top: -1.2em;
+    left: calc(50% - 0.75em);
+    background-color: var(--dark-color);
+}
+
+/*******************Style du tp******************************/
+
+.is-active {
+    border-bottom: solid 2px var(--color-default) !important;    
+}
+
+.div-specs h1{
+    text-align: center;
+}
+
+.div-specs {
+    max-width: 800px;
+    margin: 0;
+}
