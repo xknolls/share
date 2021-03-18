@@ -1,5 +1,6 @@
 :root {
     --color-default: darkgrey;
+    --color-second: rgb(102, 102, 102);
     --dark-color: rgb(31, 31, 31);
 }
 
@@ -17,7 +18,7 @@ html {
 body {
     min-height: 100vh;
     display: grid;
-    background: rgb(65, 65, 65);
+    background: var(--color-second);
     grid-template-rows: auto 1fr auto;
     font-size: 1.6em;
     font-family: Arial, Helvetica, sans-serif;;
@@ -143,14 +144,20 @@ body {
 }
 
 .gallery {
-    max-width: 48%;
+    max-width: 50%;
     display: flex;
     align-content:flex-start;
     flex-wrap: wrap;
+    background-color: var(--dark-color);
+    margin-left: 1em;
+    border-radius: 1em 0 0 0;
 }
 
-.putaindephotodemerde {
-    width: 100%;
+.picture {
+    margin: 1em;
+    width: calc(50% - (2px + 3em));
+    border: 1px solid white;
+    position: fixed;
 }
 
 .choice-gallery-a {
@@ -158,4 +165,12 @@ body {
     text-transform: uppercase;
     color: var(--color-default);
     margin: 2em;
+}
+
+.choice-gallery-nav {
+    margin: 0.8rem 0;
+}
+
+.preview {
+    max-width: 50%;
 }
