@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooM</title>
+    <meta name="description" content="mise en place de la fonctionalitée de zoom depuis des miniatures;">
+    <link rel="stylesheet" href="themes/dark/css/normalize.css">
+    <link rel="stylesheet" href="themes/dark/css/styles.css">
+</head>
+<body>
+    <header class="banner">
+        <a class="site-logo" href="./index.html">ZooM</a>
+        <p class="site-description">Miniatures et effet de Zoom</p>
+        <nav class="banner-nav">
+            <a class="is-active" href="index.html">TP</a>
+            <a href="./specs.html">Specs du TP</a>
+        </nav>
+    </header>
+    <main>
+        <nav class="choice-gallery-nav">
+            <?php foreach($galleries as $gallerie) :?>
+                <a class="choice-gallery-a" href="?galerie=<?= htmlspecialchars($gallerie) ?>"><?= htmlspecialchars($gallerie) ?></a>
+            <?php endforeach;?>
+        </nav>
+    
+    <section class="gallery-container">
+        <div class="gallery">
+        <?php 
+            foreach($gallery as $image) :
+                echo '<img src="'. $gallery_path . $image['src'] .'" class="img-test">';
+            endforeach;
+            ?>
+        </div>
+        <div class="preview">
+            <img class="picture" src="medias/macro/3.jpg">
+        </div>
+    </section>
+
+    </main>
+    <script src="js/zoom.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div class="row flex-grow-1">
+    <nav class="col-3 bg-light align-self-strech">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link active" href="admin.php">Tableau de bord</a></li>
+            <li class="nav-item"><a class="nav-link active" href="add_post.php">Créer un nouvel article</a></li>
+            <li class="nav-itel"><a class="nav-link active" href="medias.php">Media</a></li>
+        </ul>
+    </nav>
+        <section class="container col-9">
+            <header class="bg-light p-1 rounded text-center">
+                <h1>Gestion des médias</h1>
+                <p>Uploader des documents sur le site</p>
+            </header>
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Uploader un fichier</legend>
+                    <div class="mb-3">
+                        <label for="description">Description</label>
+                        <input class="form-control" type="text" name="description" id="description" value="<?= $form_datas['description'] ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="legend">Légende</label>
+                        <textarea class="form-control" name="legend" id="legend" cols="80" rows="4"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formfile">Uploader un fichier</label>
+                        <input class="form-control" id="formfile" type="file" name="formfile">
+                    </div>
+                </fieldset>
+                <p class="text-end">
+                    <input class="btn btn-lg btn-dark" type="submit" value="Envoyer">
+                </p>
+            </form>
+        </section>
+</div>

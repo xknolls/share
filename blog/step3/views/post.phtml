@@ -1,0 +1,73 @@
+<nav aria-label="breadcrumb rounded-bottom">
+    <ol class="breadcrumb bg-light m-n1 px-4 py-1" style="margin : 0 -0.75rem">
+        <li class="breadcrumb-item"><a href="./index.php">Accueil</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+</nav>
+
+<article class="row flex-grow-1">
+    <section class="col-md-7">
+        <header class="bg-warning rounded m-3 p-5">
+            <h1><?= htmlspecialchars($post['title']) ?></h1>
+            <hr>
+            <p>Dans la catégorie: <span class="badge bg-dark"><?= htmlspecialchars($post['label']); ?></p>
+            <p><?= 'Rédigé par ' . htmlspecialchars($post['pseudo']) . ' le ' . htmlspecialchars($post['date']); ?></p>
+        </header>
+        <p class="mx-3 text-center"><?= htmlspecialchars($post['content']); ?></p>
+    </section>
+    <aside class="col-md-5 p-5 bg-secondary text-light" style="margin-bottom: -3rem;">
+        <h2>Liste des commentaires (<?= intval($count_comments); ?>)</h2>
+        <?php if ($count_comments == 0) : ?>
+            <p>Cet article n'a pas de commentaires.</p>
+        <?php else : ?>
+            <ul class="list-group">
+                <?php while ($comment = $query_comments->fetch()) : ?>
+                    <li class="list-group-item list-group-item-dark">
+                        <div class="d-flex x-100 juustify-content-between">
+                            <strong>
+                                <?= htmlspecialchars(($comment['pseudo'])); ?>
+                            </strong>
+                            <time class="ms-auto" datetime="<?= htmlspecialchars($comment['date']); ?>">
+                                <?= htmlspecialchars($comment['date']); ?>
+                            </time>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
+                                <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z" />
+                            </svg>
+                            <?= htmlspecialchars($comment['comment']); ?>
+                        </div>
+                    </li>
+                <?php endwhile; ?>
+            </ul>
+        <?php endif; ?>
+        <hr>
+
+
+        <?php if (is_logged() == true) : ?>
+            <div>
+                <form action="add_comment.php" method="POST" class="mt-5">
+                <input type="hidden" name="id_post" value="<?= intval($post['id_post']); ?>">
+                <fieldset class="bg-warning rounded">
+                    <legend class="bg-dark text-center m-0 fs-2 rounded-top">Nouveau commentaire</legend>
+                    <div class="m-3 mt-0">
+                        <label for="comment" class="form-label text-dark m-3 fs-4"><strong>Votre Commentaire</strong></label>
+                        <textarea class="form-control mh-100 m-3" name="comment" id="comment" rows="5"></textarea>
+                    </div>
+                    <p class="text-end">
+                        <button type="submit" class="btn btn-dark mx-3">Poster</button>
+                    </p>
+                </fieldset>
+            </form>
+            </div>
+        <?php else : ?>
+            <div class="bg-dark p-3 text-center rounded">
+                <h3>Si tu veut te connecter connect toi FDP ! </h3>
+                <a href="#"><button type="button" class="btn btn-warning">S'incrire</button></a>
+                <a href="login.php"><button type="button" class="btn btn-light">Se connecter</button></a>
+            </div>
+        <?php endif; ?>
+
+    </aside>
+</article>
