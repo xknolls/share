@@ -1,0 +1,17 @@
+Les fichiers modifiés pour le moment :
+    inc/bdd_fontions.php :  
+        getUserById
+        edit_status_confimation_user_account
+    
+    inc/functions.php : 
+        str_random
+    
+    inc/utils.php : 
+        is_confirmed_by_id
+    
+    login.php
+    register.php
+
+Les fichiers ajoutés pour le moment : 
+    confim.php
+    confirm.phtml
