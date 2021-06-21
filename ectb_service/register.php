@@ -76,8 +76,10 @@ if (!empty($_POST)) {
     $aUserInfos['token'] = $token;
 
     if (empty($aErrors)) {
+        var_dump($aUserInfos);
+        die;
         $user_id = register($aUserInfos);
-        mail($aUserInfos['email'], 'Confirmer votre adresse email', "Pour confirmer votre adresse email veuillez cliquez sur le lien suivant : \n\n http://quentin.greta/ectb_service/confirm.php?id=$user_id&token=$token");
+        //mail($aUserInfos['email'], 'Confirmer votre adresse email', "Pour confirmer votre adresse email veuillez cliquez sur le lien suivant : \n\n http://quentin.greta/ectb_service/confirm.php?id=$user_id&token=$token");
         header('Location:login.php');
         exit;
     }
