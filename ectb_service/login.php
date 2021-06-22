@@ -25,7 +25,7 @@ if (array_key_exists('email', $_POST) && filter_var($_POST['email'], FILTER_VALI
 
         $id_user = intval($user['id_user']);
 
-        // Vérification que l'utilisateur à bien confirmé son compte 
+        // Vérification que l'utilisateur a bien confirmé son compte 
         if (is_confirmed_by_id($id_user) == false) {
             $error = "Votre compte n'as pas encore été confirmé ! ";
         } else {
@@ -41,7 +41,6 @@ if (array_key_exists('email', $_POST) && filter_var($_POST['email'], FILTER_VALI
         $error = 'Les identifiants saisis ne sont pas valides';
     }
 }
-
 
 /* -------------------------------- Affichage ------------------------------- */
 $theme_path = '';

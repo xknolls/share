@@ -1,9 +1,9 @@
 <div class="admin-container">
     <nav class="admin-nav">
         <ul>
-            <li><a href="management_users.php">Gestion des comptes</a></li>
-            <hr>
             <li><a href="admin.php">Gestion des demandes de devis</a></li>
+            <hr>
+            <li><a href="management_users.php">Gestion des comptes</a></li>
             <hr>
             <li><a href="subject.php">Gestion des sujets</a></li>
         </ul>
@@ -95,10 +95,10 @@
                 </form>
             </div>
 
-            <nav>
+            <nav class="nav-pagination">
                 <ul class="pagination-nav">
                     <li>
-                        <?php if ($currentPage == 1) : ?>
+                        <?php if ($currentPage == 1) : ?>   
                             <p>Précédent</p>
                         <?php else : ?>
                             <?php if (!empty($_GET) && isset($_GET['nb_devis']) && ($_GET['nb_devis'] > 0) && ($_GET['nb_devis'] <= 15)) : ?>

@@ -12,14 +12,14 @@ if(is_logged() !== true) {
     exit;
 }
 
-/* --------------- récupération des infos du compte à modifier -------------- */
+/* --------------- récupération des infos du devis à afficher -------------- */
 
-// Récupération de l'id_user à modifier dans l'url
+// Récupération de l'id_devis à modifier dans l'url
 if (array_key_exists('id', $_GET) && (ctype_digit($_GET['id']))) {
 
     $id_devis = $_GET['id'];
 
-    //Récupération du compte à modifier
+    //Récupération du devis à afficher
     $aDevis = getDevisById($id_devis);
 }
 
@@ -27,7 +27,7 @@ if (array_key_exists('id', $_GET) && (ctype_digit($_GET['id']))) {
 
 
 
-// Enregistrement en BDD
+// Enregistrement en BDD de la modification de l'état du devis
 if (!empty($_POST)) {
 
     $aInfosStatus['id_devis'] = $id_devis;

@@ -228,8 +228,7 @@ function getDevisById($id_devis)
  *
  * @param  string $status
  */
-function getDevisByStatus($status)
-{
+function getDevisByStatus($status){
     $pdo = connect();
     $query = $pdo -> prepare('
         SELECT
@@ -283,23 +282,43 @@ function get_subjects()
 /* ---------------------------- Ajout dans la BDD --------------------------- */
 
 /**
+ * ajout un document en BDD
+ *
+ * @param  array $aDocument qui contient toute les infos du document à uploader
+ * 
+ * @return void
+ */
+function add_document(array $aDocument): void
+{
+
+    $pdo = connect();
+    $query = $pdo->prepare('
+        INSERT INTO documents
+            (name,type,size,description,legend,date_upload, id_user)
+        VALUES
+            (:name,:type,:size,:description,:legend,NOW(),:id_user)
+    ');
+
+    $query->execute($aDocument);
+}
+
+/**
  * Enregistrement en BDD de notre nouvel utilisateur
  *
  * @param  array $aUserInfos
+ * @return void
  */
-function register(array $aUserInfos)
+function register(array $aUserInfos): void
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
         INSERT INTO users 
-            (firstname, lastname, pseudo, email, password, confirmation_token) 
+            (firstname, lastname, pseudo, email, password) 
         VALUES 
-            (:firstname, :lastname, :pseudo, :email, :password, :token);
+            (:firstname, :lastname, :pseudo, :email, :password);
     ');
 
     $query->execute($aUserInfos);
-    return $oPdo->lastInsertId();
-
 }
 
 /**
