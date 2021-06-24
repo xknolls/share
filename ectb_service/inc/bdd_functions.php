@@ -9,9 +9,7 @@
  */
 function connect(): object
 {
-
     require_once('config/config.php');
-
     // Tenter de se connecter à la base de données
     try {
         $pdo = new PDO(
@@ -22,20 +20,12 @@ function connect(): object
             // Mot de passe
             DB_PASSWORD
         );
-        /* 
-            https://www.php.net/manual/fr/pdostatement.fetch.php 
-    
-            PDO::FETCH_BOTH (défault)
-        
-        */
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
         //Uniquement en dev 
         if (defined('DB_SQL_DEBUG')) {
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-
-
         return $pdo;
     } catch (PDOException $error) {
         //echo 'Erreur : ' . $error -> getMessage();
@@ -46,8 +36,6 @@ function connect(): object
             3,
             './log/errors.log'
         );
-        // Envoi email à l'adresse choisi :qui plante en l'absence de serveur de mail 
-        // error_log('Problème d\'accès à la base données sur quentin.greta',1,'adresse@mail.greta');
         header('Location:404.php?er=503');
         exit;
     }
@@ -152,12 +140,8 @@ function get_user_by_pseudo(string $sPseudo)
         FROM users
         WHERE pseudo = :pseudo
     ');
-
-    $query->execute(
-        array(
-            ':pseudo' => $sPseudo
-        )
-    );
+    $query->bindValue(':pseudo', $sPseudo, PDO::PARAM_STR);
+    $query->execute();
     $aUser = $query->fetch();
     return $aUser;
 }

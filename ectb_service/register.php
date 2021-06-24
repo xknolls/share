@@ -37,19 +37,21 @@ if (!empty($_POST)) {
     }
 
     // Test pour vérifier qu'un utilisateur avec l'email renseigner n'existe pas déja
-    $testEmail = get_user_by_login($_POST['email']);
+    $testEmail = get_user_by_login(htmlspecialchars($_POST['email']));
     if ($testEmail) {
-        $aErrors['email'] = 'L\'email ' . $_POST['email'] .  ' existe deja ! ';
+        $aErrors['email'] = 'L\'email ' . htmlspecialchars($_POST['email']) .  ' existe deja ! ';
     }
 
-    if (empty($_POST['pseudo']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['pseudo'] )) {
+    if (empty($_POST['pseudo'])) {
         $aErrors['pseudo'] = "Votre pseudo n'est pas valide";
     }
-
-    $testPseudo = get_user_by_pseudo($_POST['pseudo']);
+    
+    // Test pour vérifier qu'un utilisateur avec le pseudo renseigner n'existe pas déja
+    $testPseudo = get_user_by_pseudo(htmlspecialchars($_POST['pseudo']));
     if ($testPseudo !== false) {
-        $aErrors['pseudo'] = 'Le ' . $_POST['pseudo'] . ' pseudo existe deja ! ';
+        $aErrors['pseudo'] = 'Le pseudo ' . htmlspecialchars($_POST['pseudo']) . ' existe deja ! ';
     }
+
 
     if (empty($_POST['password'])) {
         $aErrors['password'] = 'Veuillez ajouter un mot de passe ! ';
@@ -76,8 +78,6 @@ if (!empty($_POST)) {
     $aUserInfos['token'] = $token;
 
     if (empty($aErrors)) {
-        var_dump($aUserInfos);
-        die;
         $user_id = register($aUserInfos);
         //mail($aUserInfos['email'], 'Confirmer votre adresse email', "Pour confirmer votre adresse email veuillez cliquez sur le lien suivant : \n\n http://quentin.greta/ectb_service/confirm.php?id=$user_id&token=$token");
         header('Location:login.php');
