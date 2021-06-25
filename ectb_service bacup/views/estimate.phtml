@@ -1,0 +1,91 @@
+<div class="devis-form">
+<form action="" method="POST">
+    <fieldset>
+        <legend class="form-legend">Réaliser un devis</legend>
+        <div>
+            <div class="div-label-input">
+                <label for="firstname">Prénom</label>
+                <?php if (isset($aUser)) : ?>
+                    <input type="text" name="firstname" id="firstname" value="<?= $aUser['firstname'] ?>"> 
+                <?php else: ?>
+                    <input type="text" name="firstname" id="firstname">
+                <?php endif; ?>
+                <?php if (isset($errors['firstname'])) : ?>
+                    <p class="error"><?= $errors['firstname'] ?></p>
+                <?php endif; ?>
+            </div>
+
+            <div class="div-label-input">
+                <label for="lastname">Nom</label>
+                <?php if (isset($aUser)) : ?>
+                    <input type="text" name="lastname" id="lastname" value="<?= $aUser['lastname'] ?>"> 
+                <?php else: ?>
+                    <input type="text" name="lastname" id="lastname">
+                <?php endif; ?>
+                <?php if (isset($errors['lastname'])) : ?>
+                    <p class="error"><?= $errors['lastname'] ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="div-label-input">
+            <label for="email">Adresse mail</label>
+            <?php if (isset($aUser)) : ?>
+                    <input type="email" name="email" id="email" value="<?= $aUser['email'] ?>"> 
+                <?php else: ?>
+                    <input type="email" name="email" id="email">
+                <?php endif; ?>
+            <?php if (isset($errors['email'])) : ?>
+                <p class="error"><?= $errors['email'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="div-label-input">
+            <label for="tel">Numéro de téléphone</label>
+            <input type="phone" name="tel" id="tel">
+            <?php if (isset($errors['tel'])) : ?>
+                <p class="error"><?= $errors['tel'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="div-label-input">
+            <label for="tel">Ville</label>
+            <input type="text" name="city" id="city">
+            <?php if (isset($errors['city'])) : ?>
+                <p class="error"><?= $errors['city'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="div-label-input">
+            <label for="subject">Sujet</label>
+            <select name="subject" id="subject">
+                <option>Sujet du devis</option>
+                <optgroup>
+                    <option value="Dépannage clim / électricité">Dépannage clim / électricité</option>
+                    <option value="Installation électrique logement neuf">Installation électrique logement neuf</option>
+                    <option value="Rénovation électrique">Rénovation électrique</option>
+                    <option value="Installation climatisation">Installation climatisation</option>
+                    <option value="Ventilation">Ventilation</option>
+                    <option value="Autre">Autre</option>
+                </optgroup>
+            </select>
+            <?php if (isset($errors['subject'])) : ?>
+                <p class="error"><?= $errors['subject'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="div-label-input">
+            <label for="message">Informations complémentaires</label>
+            <textarea name="message" id="message"></textarea>
+            <?php if (isset($errors['message'])) : ?>
+                <p class="error"><?= $errors['message'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div>
+            <input class="devis-btn-3" type="submit" value="Envoyer">
+        </div>
+
+    </fieldset>
+</form>
+</div>

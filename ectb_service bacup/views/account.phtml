@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <h1>Profil - <?= htmlspecialchars(ucwords($aUser['pseudo'])) ;?></h1>
+        <p>Ici vous retrouvez toutes les informations de votre profil</p>
+    </div>
+    <ul>
+        <li>Pseudo : <?= htmlspecialchars(ucwords($aUser['pseudo'])) ;?></li>
+        <li>Prénom : <?= htmlspecialchars(ucwords($aUser['firstname'])) ;?></li>
+        <li>Nom : <?= htmlspecialchars(ucwords($aUser['lastname'])) ;?></li>
+        <li>Adresse email : <?= htmlspecialchars($aUser['email']) ;?></li>
+    </ul>
+    <div>
+        <a href="logout.php">Déconnection</a>
+        <a href="edit_account.php">Modifier le profil</a>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<section>
+    <div class="devis-form">
+        <?php if (isset($error)) : ?>
+            <p class="error"><?= $error; ?></p>
+        <?php endif; ?>
+        <form action="" method="POST">
+            <fieldset>
+                <legend class="form-legend">Se connecter sur le site</legend>
+                <div class="div-label-input">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="div-label-input">
+                    <label for="exampleInputPassword1">Mot de passe</label>
+                    <input type="password" name="password" id="password">
+                    <br>
+                    <input type="checkbox" id="displayPassword">
+                    <label id="checkbox" for="text">Afficher le mot de passe</label>
+                </div>
+                <div>
+                    <button class="devis-btn-3" type="submit">Se connecter</button>
+                </div>
+                <div class="account-create-div">Vous n'avez pas de compte ? <a href="register.php" class="account-create">Créer un compte</a></div>
+            </fieldset>
+        </form>
+    </div>
+</section>
