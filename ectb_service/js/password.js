@@ -1,8 +1,11 @@
 ; (function () {
     'use strict';
 
+    const checkbox = document.querySelector('#displayPassword');
+    
     function displayPassword() {
-        var input = document.querySelector('#password');
+        let input = document.querySelector('#password');
+
         if (input.type === "password") {
             input.type = "text";
         }
@@ -10,7 +13,9 @@
             input.type = "password";
         }
     }
-
-    document.querySelector('#displayPassword').addEventListener('click', displayPassword);
+    
+    if( checkbox !== null ){
+        checkbox.addEventListener('click', displayPassword);
+    }
 
 })();

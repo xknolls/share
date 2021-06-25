@@ -22,39 +22,52 @@ $aUserInfos['pseudo'] = '';
 if (!empty($_POST)) {
 
     // Ici on gère les erreurs dans le remplissage du formulaire
+    // Si le champ es vide on génère un message d'erreur pour le champ qui n'as pas étais remplis
     $aErrors = [];
 
     if (empty($_POST['firstname'])) {
-        $aErrors['firstname'] = 'Veuillez renseigner votre prénom ! ';
+        $aErrors['firstname'] = ' Veuillez renseigner votre prénom ! ';
     }
 
     if (empty($_POST['lastname'])) {
-        $aErrors['lastname'] = 'Veuillez renseigner votre nom ! ';
+        $aErrors['lastname'] = ' Veuillez renseigner votre nom ! ';
     }
 
     if (empty($_POST['email']) || filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
-        $aErrors['email'] = 'Veuillez renseigner un email valide ! ';
+        $aErrors['email'] = ' Veuillez renseigner un email valide ! ';
     }
 
     // Test pour vérifier qu'un utilisateur avec l'email renseigner n'existe pas déja
     $testEmail = get_user_by_login(htmlspecialchars($_POST['email']));
     if ($testEmail) {
+<<<<<<< HEAD
         $aErrors['email'] = 'L\'email ' . htmlspecialchars($_POST['email']) .  ' existe deja ! ';
     }
 
     if (empty($_POST['pseudo'])) {
         $aErrors['pseudo'] = "Votre pseudo n'est pas valide";
+=======
+        $aErrors['email'] = ' L\'email ' . $_POST['email'] .  ' existe deja ! ';
+    }
+
+    if (empty($_POST['pseudo']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['pseudo'] )) {
+        $aErrors['pseudo'] = " Votre pseudo n'est pas valide ";
+>>>>>>> b0bc83cafa9d2376c7c14d6afbed22fd07da507a
     }
     
     // Test pour vérifier qu'un utilisateur avec le pseudo renseigner n'existe pas déja
     $testPseudo = get_user_by_pseudo(htmlspecialchars($_POST['pseudo']));
     if ($testPseudo !== false) {
+<<<<<<< HEAD
         $aErrors['pseudo'] = 'Le pseudo ' . htmlspecialchars($_POST['pseudo']) . ' existe deja ! ';
+=======
+        $aErrors['pseudo'] = ' Le pseudo ' . htmlspecialchars($_POST['pseudo']) . ' existe deja ! ';
+>>>>>>> b0bc83cafa9d2376c7c14d6afbed22fd07da507a
     }
 
 
     if (empty($_POST['password'])) {
-        $aErrors['password'] = 'Veuillez ajouter un mot de passe ! ';
+        $aErrors['password'] = ' Veuillez ajouter un mot de passe ! ';
     }
 
     if (check_mdp_format($_POST['password']) !== true) {
@@ -63,7 +76,7 @@ if (!empty($_POST)) {
 
     // Vérifier si les mdp sont identiques
     if (empty($_POST['confirmedPassword']) || $_POST['confirmedPassword'] !== $_POST['password']) {
-        $aErrors['confirmedPassword'] = 'Les mots de passe ne sont pas identiques ! ';
+        $aErrors['confirmedPassword'] = ' Les mots de passes ne sont pas identiques ! ';
     }
 
     // Création du'un token de confirmation 
@@ -80,6 +93,7 @@ if (!empty($_POST)) {
     if (empty($aErrors)) {
         $user_id = register($aUserInfos);
         //mail($aUserInfos['email'], 'Confirmer votre adresse email', "Pour confirmer votre adresse email veuillez cliquez sur le lien suivant : \n\n http://quentin.greta/ectb_service/confirm.php?id=$user_id&token=$token");
+        //TODOO boite modale pour indiquer de confirmer son compte
         header('Location:login.php');
         exit;
     }

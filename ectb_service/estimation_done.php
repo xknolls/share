@@ -1,10 +1,18 @@
+<?php 
+    require_once('inc/bdd_functions.php');
+    require_once('./config/config.php');
+    require_once('inc/utils.php');
+    init_session();
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<meta name="description" content="ECTB-Service - Accueil">
+	<meta name="description" content="ECTB-Service - Traitement du devis">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -23,7 +31,7 @@
 		    <h2 class="logo2">Service</h2>
         </a>
         <nav id="myLinks">
-            <a href="estimate.php">Faire un devis</a>
+            <a href="estimate.php">Demande de devis</a>
             <a href="about.php">Qui sommes nous ?</a>
             <?php if (is_logged() !== true) : ?>
                 <a href="login.php">Se connecter</a>
@@ -40,11 +48,11 @@
         </a>
     </header>
 
-    <main>
-
-    <?php include 'views/' . $template . '.phtml' ?>
-
+    <main class="estimation-done">
+        <h1>Votre demande de devis a bien été prise en compte</h1>
+        <a class="devis-btn" href="index.php">Retourner à l'accueil</a>
     </main>
+
     <footer class="footer">
         <div>
             <a href="#" class="title-menu">
@@ -64,6 +72,8 @@
     <script src="js/password.js"></script>
     <script src="js/confirm.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/filterAjax.js"></script>
 </body>
 
 </html>
+
