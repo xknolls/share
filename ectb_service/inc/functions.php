@@ -25,12 +25,7 @@ function checkMdpFormat(string $password): bool
  *
  * @param mixed $length
  */
-<<<<<<< HEAD
-function str_random($length)
-
-=======
 function strRandom($length)
->>>>>>> 4ecf0ccb6be918005de33c92e54f4c416bd5218d
 {
     // je déclare les caractères autorisés
     $alphabet = "0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";
