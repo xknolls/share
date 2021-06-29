@@ -1,9 +1,9 @@
 <div class="subject-container">
 	<nav class="subject-nav">
 		<ul>
-			<li><a href="admin.php">Gestion des demandes de devis</a></li>
-			<hr>
 			<li><a href="management_users.php">Gestion des comptes</a></li>
+			<hr>
+			<li><a href="admin.php">Gestion des demandes de devis</a></li>
 			<hr>
 			<li><a href="subject.php">Gestion des sujets</a></li>
 		</ul>
@@ -28,7 +28,7 @@
 					<tr>
 						<td><?= $subject['label_subject'] ?></td>
 						<td>
-							<a class="table-btn modifySubject" data-subject="<?= $subject['label_subject'] ?>" href="display_devis.php?id=<?= intval($subject['id_subject']) ?>" title="Modifier le sujet">
+							<a class="table-btn modifySubject" data-subject="<?= $subject['label_subject'] ?>" title="Modifier le sujet">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-sliders" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
 								</svg>

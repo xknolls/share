@@ -32,14 +32,14 @@ if(!empty($_POST)) {
     
 // Enregistrement en BDD
 if (!empty($_POST)) {
-    edit_user($aUserInfos);
+    editUser($aUserInfos);
     header('Location:admin.php');
     exit;
 }
 /* -------------------------------- Affichage ------------------------------- */
 
 // Récupération des diférentes permissions
-$query_permissions = get_permissions();
+$query_permissions = getPermissions();
 
 $theme_path ='';
 

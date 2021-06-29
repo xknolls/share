@@ -2,7 +2,7 @@
 <form action="" method="POST">
     <fieldset>
         <legend class="form-legend">Réaliser un devis</legend>
-        <div class="form-id">
+        <div>
             <div class="div-label-input">
                 <label for="firstname">Prénom</label>
                 <?php if (isset($aUser)) : ?>
@@ -28,47 +28,35 @@
             </div>
         </div>
 
-        <div class="form-contact">
-            <div class="div-label-input">
-                <label for="email">Adresse mail</label>
-                <?php if (isset($aUser)) : ?>
-                        <input type="email" name="email" id="email" value="<?= $aUser['email'] ?>"> 
-                    <?php else: ?>
-                        <input type="email" name="email" id="email">
-                    <?php endif; ?>
-                <?php if (isset($errors['email'])) : ?>
-                    <p class="error"><?= $errors['email'] ?></p>
+        <div class="div-label-input">
+            <label for="email">Adresse mail</label>
+            <?php if (isset($aUser)) : ?>
+                    <input type="email" name="email" id="email" value="<?= $aUser['email'] ?>"> 
+                <?php else: ?>
+                    <input type="email" name="email" id="email">
                 <?php endif; ?>
-            </div>
-    
-            <div class="div-label-input">
-                <label for="tel">Numéro de téléphone</label>
-                <input type="phone" name="tel" id="tel">
-                <?php if (isset($errors['tel'])) : ?>
-                    <p class="error"><?= $errors['tel'] ?></p>
-                <?php endif; ?>
-            </div>
+            <?php if (isset($errors['email'])) : ?>
+                <p class="error"><?= $errors['email'] ?></p>
+            <?php endif; ?>
         </div>
 
-        <div class="form-city">
-            <div class="div-label-input">
-                <label for="postalCode">Code postal</label>
-                <input type="text" name="postalCode" id="cipostalCodety">
-                <?php if (isset($errors['postalCode'])) : ?>
-                    <p class="error"><?= $errors['postalCode'] ?></p>
-                <?php endif; ?>
-            </div>
-    
-            <div class="div-label-input">
-                <label for="city">Ville</label>
-                <input type="text" name="city" id="city">
-                <?php if (isset($errors['city'])) : ?>
-                    <p class="error"><?= $errors['city'] ?></p>
-                <?php endif; ?>
-            </div>
+        <div class="div-label-input">
+            <label for="tel">Numéro de téléphone</label>
+            <input type="phone" name="tel" id="tel">
+            <?php if (isset($errors['tel'])) : ?>
+                <p class="error"><?= $errors['tel'] ?></p>
+            <?php endif; ?>
         </div>
 
-        <div class="form-subject">
+        <div class="div-label-input">
+            <label for="tel">Ville</label>
+            <input type="text" name="city" id="city">
+            <?php if (isset($errors['city'])) : ?>
+                <p class="error"><?= $errors['city'] ?></p>
+            <?php endif; ?>
+        </div>
+
+        <div class="div-label-input">
             <label for="subject">Sujet</label>
             <select name="subject" id="subject">
                 <option>Sujet du devis</option>
@@ -86,9 +74,9 @@
             <?php endif; ?>
         </div>
 
-        <div class="form-info">
+        <div class="div-label-input">
             <label for="message">Informations complémentaires</label>
-            <textarea name="message" id="message" rows="8" cols="100"></textarea>
+            <textarea name="message" id="message"></textarea>
             <?php if (isset($errors['message'])) : ?>
                 <p class="error"><?= $errors['message'] ?></p>
             <?php endif; ?>

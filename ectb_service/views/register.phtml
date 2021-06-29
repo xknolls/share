@@ -34,7 +34,8 @@
                 <div class="div-label-input">
                     <label for="text">Mot de passe</label>
                     <?php if (isset($aErrors['passwordFormat'])) : ?>
-                        <p class="error"> Votre mot de passe doit contenir au moins<br>8 caractères, une majuscule, une miniscule et un chiffre </p>
+                        <p class="error">Votre mot de passe doit contenir au moins :</p>
+                        <p class="error">8 caractères, Une majuscule, Une miniscule, Un chiffre</p>
                     <?php endif; ?>
                     <?php if (isset($aErrors['password'])) : ?>
                         <p class="error"><?= htmlspecialchars($aErrors['password']); ?></p>

@@ -14,7 +14,7 @@ if(is_logged() !== true) {
 
 /* ----------------------------- liste de sujets ---------------------------- */
 
-$query = get_subjects();
+$query = getSubjects();
 $subjects = $query->fetchAll();
 
 /* -------------------------------- Affichage ------------------------------- */

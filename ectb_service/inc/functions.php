@@ -6,7 +6,7 @@
  * @param  string $password
  * @return bool
  */
-function check_mdp_format(string $password): bool
+function checkMdpFormat(string $password): bool
 {
     $majuscule = preg_match('@[A-Z]@', $password);
     $minuscule = preg_match('@[a-z]@', $password);
@@ -25,8 +25,12 @@ function check_mdp_format(string $password): bool
  *
  * @param mixed $length
  */
+<<<<<<< HEAD
 function str_random($length)
 
+=======
+function strRandom($length)
+>>>>>>> 4ecf0ccb6be918005de33c92e54f4c416bd5218d
 {
     // je déclare les caractères autorisés
     $alphabet = "0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";

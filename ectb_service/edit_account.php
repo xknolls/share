@@ -44,7 +44,7 @@ if (
     } else {
         // Seulement si le pseudo est modifié alors on test si il n'existe pas déja
         if ($aUser['email'] !== $_POST['email']) {
-            $testEmail = get_user_by_login($_POST['email']);
+            $testEmail = getUserByLogin($_POST['email']);
             if ($testEmail !== false) {
                 $aErrors['email'] ='L\'email ' . $_POST['email'] .  ' existe deja ! ';
             }
@@ -57,7 +57,7 @@ if (
 
         // Seulement si le pseudo est modifié alors on test si il n'existe pas déja
         if ($aUser['pseudo'] !== $_POST['pseudo']) {
-            $testPseudo = get_user_by_pseudo($_POST['pseudo']);
+            $testPseudo = getUserByPseudo($_POST['pseudo']);
             if ($testPseudo !== false) {
                 $aErrors['pseudo'] ='Le pseudo ' . $_POST['pseudo'] .  ' existe deja ! ';
             }
@@ -100,11 +100,11 @@ if (!empty($_POST['passwordCurrent'])) {
 
 // Enregistrement en BDD seulement si il y a eu une modification
 if (!empty($aUserInfos) && empty($aErrors)) {
-    edit_account($aUserInfos);
+    editAccount($aUserInfos);
 }
 
 if (!empty($aPassEdit) && empty($aErrorsPass)) {
-    edit_password($aPassEdit);
+    editPassword($aPassEdit);
 }
 
 /* -------------------------------- Affichage ------------------------------- */

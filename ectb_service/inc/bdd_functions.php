@@ -9,9 +9,7 @@
  */
 function connect(): object
 {
-
     require_once('config/config.php');
-
     // Tenter de se connecter à la base de données
     try {
         $pdo = new PDO(
@@ -22,20 +20,12 @@ function connect(): object
             // Mot de passe
             DB_PASSWORD
         );
-        /* 
-            https://www.php.net/manual/fr/pdostatement.fetch.php 
-    
-            PDO::FETCH_BOTH (défault)
-        
-        */
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
         //Uniquement en dev 
         if (defined('DB_SQL_DEBUG')) {
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-
-
         return $pdo;
     } catch (PDOException $error) {
         //echo 'Erreur : ' . $error -> getMessage();
@@ -46,8 +36,6 @@ function connect(): object
             3,
             './log/errors.log'
         );
-        // Envoi email à l'adresse choisi :qui plante en l'absence de serveur de mail 
-        // error_log('Problème d\'accès à la base données sur quentin.greta',1,'adresse@mail.greta');
         header('Location:404.php?er=503');
         exit;
     }
@@ -61,7 +49,7 @@ function connect(): object
  *
  * return tous les utilisateur
  */
-function get_users()
+function getUsers()
 {
     $pdo = connect();
     $query = $pdo->prepare('
@@ -115,7 +103,7 @@ function getUserById(int $id_user)
  * @param  string $login
  * @return $aUser avec les infos d'un utilisateur
  */
-function get_user_by_login(string $sLogin)
+function getUserByLogin(string $sLogin)
 {
     $pdo = connect();
     $query = $pdo->prepare('
@@ -142,7 +130,7 @@ function get_user_by_login(string $sLogin)
  * @param  string $sPseudo
  * @return $aUser avec les infos d'un utilisateur
  */
-function get_user_by_pseudo(string $sPseudo)
+function getUserByPseudo(string $sPseudo)
 {
     $pdo = connect();
     $query = $pdo->prepare('
@@ -152,12 +140,8 @@ function get_user_by_pseudo(string $sPseudo)
         FROM users
         WHERE pseudo = :pseudo
     ');
-
-    $query->execute(
-        array(
-            ':pseudo' => $sPseudo
-        )
-    );
+    $query->bindValue(':pseudo', $sPseudo, PDO::PARAM_STR);
+    $query->execute();
     $aUser = $query->fetch();
     return $aUser;
 }
@@ -167,7 +151,7 @@ function get_user_by_pseudo(string $sPseudo)
  *
  * @return void
  */
-function get_permissions()
+function getPermissions()
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
@@ -183,7 +167,7 @@ function get_permissions()
  * get_estimation
  *
  */
-function get_estimation($first, $nb_on_page)
+function getEstimation($first, $nb_on_page)
 {
     $pdo = connect();
     
@@ -228,7 +212,8 @@ function getDevisById($id_devis)
  *
  * @param  string $status
  */
-function getDevisByStatus($status){
+function getDevisByStatus($status)
+{
     $pdo = connect();
     $query = $pdo -> prepare('
         SELECT
@@ -266,7 +251,7 @@ function getCountDevis()
  *
  * @return void
  */
-function get_subjects()
+function getSubjects()
 {
     $pdo = connect();
     $query = $pdo->prepare('
@@ -282,43 +267,23 @@ function get_subjects()
 /* ---------------------------- Ajout dans la BDD --------------------------- */
 
 /**
- * ajout un document en BDD
- *
- * @param  array $aDocument qui contient toute les infos du document à uploader
- * 
- * @return void
- */
-function add_document(array $aDocument): void
-{
-
-    $pdo = connect();
-    $query = $pdo->prepare('
-        INSERT INTO documents
-            (name,type,size,description,legend,date_upload, id_user)
-        VALUES
-            (:name,:type,:size,:description,:legend,NOW(),:id_user)
-    ');
-
-    $query->execute($aDocument);
-}
-
-/**
  * Enregistrement en BDD de notre nouvel utilisateur
  *
  * @param  array $aUserInfos
- * @return void
  */
-function register(array $aUserInfos): void
+function register(array $aUserInfos)
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
         INSERT INTO users 
-            (firstname, lastname, pseudo, email, password) 
+            (firstname, lastname, pseudo, email, password, confirmation_token) 
         VALUES 
-            (:firstname, :lastname, :pseudo, :email, :password);
+            (:firstname, :lastname, :pseudo, :email, :password, :token);
     ');
 
     $query->execute($aUserInfos);
+    return $oPdo->lastInsertId();
+
 }
 
 /**
@@ -326,7 +291,7 @@ function register(array $aUserInfos): void
  *
  * @param  array $data
  */
-function add_estimation($data = array())
+function addEstimation($data = array())
 {
     $pdo = connect();
     
@@ -346,7 +311,7 @@ function add_estimation($data = array())
  * 
  * @param string
  */
-function add_subject($label)
+function addSubject($label)
 {
     $pdo = connect();
     
@@ -369,7 +334,7 @@ function add_subject($label)
  * @param  array $aUserInfos
  * @return void
  */
-function edit_user(array $aUserInfos): void
+function editUser(array $aUserInfos): void
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
@@ -388,7 +353,7 @@ function edit_user(array $aUserInfos): void
  * @param  array $aUserInfos
  * @return void
  */
-function edit_account(array $aUserInfos): void
+function editAccount(array $aUserInfos): void
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
@@ -410,7 +375,7 @@ function edit_account(array $aUserInfos): void
  * @param  string $sPassword
  * @return void
  */
-function edit_password(array $sPassword): void
+function editPassword(array $sPassword): void
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
@@ -427,7 +392,7 @@ function edit_password(array $sPassword): void
  *
  * @param  array $aDatas
  */
-function edit_status($aDatas)
+function editStatus($aDatas)
 {
     $pdo = connect();
 
@@ -450,7 +415,7 @@ function edit_status($aDatas)
  * @param  mixed $aLabel
  * @return void
  */
-function edit_subject($aLabel)
+function editSubject($aLabel)
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
@@ -469,7 +434,7 @@ function edit_subject($aLabel)
  * @param  int $id_user
  * @return void
  */
-function edit_status_confimation_user_account($id_user)
+function editStatusConfimationUserAccount($id_user)
 {
     $oPdo = connect();
     $query = $oPdo->prepare('
@@ -509,7 +474,7 @@ function deleteUser($user): void
  * @param  int $id_devis
  * @return void
  */
-function delete_devis($id_devis)
+function deleteDevis($id_devis)
 {
     $pdo = connect();
     $query = $pdo -> prepare('
@@ -528,7 +493,7 @@ function delete_devis($id_devis)
  * @param  mixed $id_subject
  * @return void
  */
-function delete_subject($id_subject)
+function deleteSubject($id_subject)
 {
     $pdo = connect();
     $query = $pdo -> prepare('

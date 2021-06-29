@@ -49,7 +49,7 @@ if(!empty($_GET) && isset($_GET['filter']) && $_GET['filter'] !== 'all'){
 
 } else {
 
-    $query_devis = get_estimation($first, $nb_on_page);
+    $query_devis = getEstimation($first, $nb_on_page);
 }
 
 /* -------------------------------- Affichage ------------------------------- */

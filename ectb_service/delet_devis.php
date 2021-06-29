@@ -14,7 +14,7 @@ if (is_logged() !== true) {
 
 // Récupération de l'id_devis à supprimer dans l'url
 if (array_key_exists('id', $_GET) && ctype_digit($_GET['id'])) {
-    delete_devis($_GET['id']);
+    deleteDevis($_GET['id']);
     header('Location: admin.php');
     exit;
 }

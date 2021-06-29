@@ -20,14 +20,14 @@ if (array_key_exists('id', $_GET) && ctype_digit($_GET['id']) && array_key_exist
         exit;
     }    
 
-    // Test pour vérifier que le token récupéré es identique à celui enregistré en bdd
+    // Test pour vérifier que le token récupéré est identique à celui enregistré en bdd
     if ($aUser['confirmation_token'] !== $token) {
         header('Location:index.php');
         exit;
     }
 
     // Confirmation du compte en retirant le token et en éditant la date de confirmation du compte
-    edit_status_confimation_user_account($id_user);
+    editStatusConfimationUserAccount($id_user);
 
     // Connection de l'utilisateur
     session_regenerate_id();
@@ -35,9 +35,9 @@ if (array_key_exists('id', $_GET) && ctype_digit($_GET['id']) && array_key_exist
     $_SESSION['pseudo'] = htmlspecialchars($aUser['pseudo']);
 
 
-} /*else {
+} else {
     header('Location:index.php');
-}*/
+}
 
 
 

@@ -12,9 +12,9 @@ if (is_logged() !== true) {
     exit;
 }
 
-// Récupération de l'id_subject à supprimer dans l'url
+// Récupération de l'id_devis à supprimer dans l'url
 if (array_key_exists('id', $_GET) && ctype_digit($_GET['id'])) {
-    delete_subject($_GET['id']);
+    deleteSubject($_GET['id']);
     header('Location: subject.php');
     exit;
 }

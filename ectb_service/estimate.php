@@ -30,12 +30,8 @@ if(!empty($_POST)){
         $errors['tel'] = 'Veuillez renseigner votre numéro de téléphone';
     }
 
-    if(empty($_POST['postalCode']) || is_int($_POST['postalCode']) !== false || strlen($_POST['postalCode']) !== 5) {
-        $errors['postalCode'] = 'Veuillez renseigner le code postal de la ville';
-    }
-
     if(empty($_POST['city'])){
-        $errors['city'] = 'Veuillez renseigner la ville dans laquelle les travaux sont à effectuer';
+        $errors['city'] = 'Veuillez renseigner la ville dans la quelle les travaux sont à effectuer';
     }
     
     if(empty($_POST['subject'])){
@@ -58,7 +54,7 @@ if(!empty($_POST)){
     
 
     if(empty($errors)){
-        add_estimation($data);
+        addEstimation($data);
         header('Location: estimation_done.php');
     }
     

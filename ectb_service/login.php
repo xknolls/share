@@ -11,7 +11,7 @@ if (is_logged() == true) {
 // Si le formulaire à était posté
 if (array_key_exists('email', $_POST) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) !== false && array_key_exists('password', $_POST)) {
     
-    $user = get_user_by_login($_POST['email']);
+    $user = getUserByLogin($_POST['email']);
 
     /* 
         Si il existe un utilisateur avec cet email
@@ -25,7 +25,7 @@ if (array_key_exists('email', $_POST) && filter_var($_POST['email'], FILTER_VALI
 
         $id_user = intval($user['id_user']);
 
-        // Vérification que l'utilisateur a bien confirmé son compte 
+        // Vérification que l'utilisateur à bien confirmé son compte 
         if (is_confirmed_by_id($id_user) == false) {
             $error = "Votre compte n'as pas encore été confirmé ! ";
         } else {
@@ -41,6 +41,7 @@ if (array_key_exists('email', $_POST) && filter_var($_POST['email'], FILTER_VALI
         $error = 'Les identifiants saisis ne sont pas valides';
     }
 }
+
 
 /* -------------------------------- Affichage ------------------------------- */
 $theme_path = '';

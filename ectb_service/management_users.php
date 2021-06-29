@@ -13,7 +13,7 @@ if(is_logged() !== true) {
 }
 
 /* -------------------------------- Affichage ------------------------------- */
-$users = get_users();
+$users = getUsers();
 
 $theme_path =''; 
 

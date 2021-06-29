@@ -8,10 +8,7 @@ if(is_logged() !== true) {
     header('Location:login.php');
     exit;
 }
-/**
- * - récuperer l'id utilisateur enregistré dans la session
- * - récuperer les informations de l'utilisateur en base de donées 
- */
+
 $id_user = $_SESSION['id_user'];
 
 $aUser = getUserById($id_user);

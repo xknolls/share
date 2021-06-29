@@ -213,12 +213,6 @@ body {
 	background: #1480c8;
 }
 
-.estimation-done{
-	text-align: center;
-	width: 70vw;
-	margin: 0 auto;
-}
-
 /* ---------------------------------- devis --------------------------------- */
 
 .devis-form {	
@@ -324,128 +318,6 @@ label {
 .footer-title {
 	font-size: 1em;
 	text-align: center;
-}
-
-/* ---------------------------------- admin --------------------------------- */
-
-
-
-.admin-section{
-	margin-right: 1.5em;
-}
-
-.admin-table, tr, th, td {
-	border: solid 1px black;
-	border-collapse: collapse;
-}
-
-.admin-table th, 
-.admin-table td {
-	padding: .3em;
-}
-
-.admin-table caption{
-	margin: 1rem 0;
-}
-
-.admin-container{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 50px;
-	grid-auto-rows: minmax(100px, auto);
-}
-
-.admin-nav{
-	background-color: rgb(200, 200, 200);
-}
-
-.admin-nav li{
-	padding:5px 0;
-	list-style-type: none;
-	margin-left: 0;
-}
-
-.admin-nav ul{
-	text-align: center;
-	padding: 0;
-}
-
-.admin-nav hr{
-	width: 7em;
-}
-
-
-
-.admin-nav a {
-	text-decoration: none;
-	color: white;
-}
-
-.admin-nav a:hover{
-	border-bottom: 1px solid white;
-}
-
-.admin-header h1{
-	text-align: center;
-}
-
-.filter-nav {
-	margin: 0.5em 1em;
-	width: max-content;
-}
-
-.filter-nav a{
-	text-decoration: none;
-	color: #1480c8;
-	margin: 0 5px;
-}
-
-.filter-nav a:hover{
-	border-bottom: 1px solid #1480c8;
-}
-
-.filter-container{
-	display: flex;
-	flex-direction: column;
-}
-
-.filter-container p {
-	margin: 0;
-	display: inline-block;
-}
-
-.nb-devis{
-	display: grid;
-	grid-template-columns: repeat(2, max-content);
-	margin-top: 0.6rem;
-	justify-items: start;
-	align-items: center;
-	margin-bottom: 10em;
-}
-
-.admin-label{
-	grid-column: 1 / 3;
-	grid-row: 1;
-	margin-right: 7em;
-}
-
-.admin-pagination{
-	display: flex;
-}
-
-.pagination-nav{
-	display: flex;
-}
-
-.pagination-nav li{
-	list-style-type: none;
-	margin: 0 0.5rem;
-}
-
-
-
-.pagination-nav p{
-	margin: 0 auto;
 }
 
 /* --------------------------------- desktop -------------------------------- */
@@ -594,19 +466,6 @@ label {
 		padding: 1.8em 0 3.2em 0;
 	}
 
-	.estimation-done{
-		text-align: center;
-	}
-
-	.estimation-done-btn{
-		text-decoration: none;
-		padding: 1em;
-		border: 2px solid #1378bb;
-		border-radius: .4rem;
-		color: white;
-		background: #1480c8;
-	}
-
 	/* --------------------------------- footer --------------------------------- */
 
 	.footer {
@@ -628,108 +487,109 @@ label {
 
 	.devis-form {
 		margin: 2em auto;
-		width: 70vw;
-	}
-
-	.form-id, .form-contact, .form-city{
-		display: flex;
-		justify-content: space-evenly;
-	}
-
-	.form-subject{
-		margin: 2em auto;
-	}
-
-	.form-subject select{
 		width: 30vw;
-	}
-
-	textarea{
-		max-width: 100%;
-		border-radius: 0.4em;
-	}
-
-	.div-label-input{
-		width: 20vw;
 	}
 
 	.div-label-input input {
 		width: 350px;
 	}
-
-
 	
-	select {
+	select,
+	textarea {
 		margin: 0.3em 0.3em 0.3em 0 !important;
-		max-width: 100%;
+		max-width: 250px;
 		border-radius: 0.4em;
 	}
-
 	
 	label {
 		display: block;
 	}
 
 	/* ---------------------------------- admin --------------------------------- */
+ 
+	.admin-section-title {
+		font-size: 1.5em;
+	}
 
-
-
-	.admin-section{
+	.admin-section,
+	.subject-section,
+	.user-section {
 		margin-right: 1.5em;
 	}
 
-	.admin-table, tr, th, td {
+	.admin-table, .subject-table, .user-table, tr, th, td {
 		border: solid 1px black;
 		border-collapse: collapse;
 	}
 
 	.admin-table th, 
-	.admin-table td {
+	.admin-table td,
+	.subject-table th,
+	.subject-table td,
+	.user-table th,
+	.user-table td {
 		padding: .3em;
 	}
 
-	.admin-table caption{
+	.admin-table caption,
+	.subject-table caption,
+	.user-table caption {
 		margin: 1rem 0;
 	}
 
-	.admin-container{
+	.admin-container,
+	.subject-container,
+	.user-container {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 400px auto;
 		grid-gap: 50px;
 		grid-auto-rows: minmax(100px, auto);
 	}
 
-	.admin-nav{
+	.admin-nav,
+	.subject-nav,
+	.user-nav {
 		background-color: rgb(200, 200, 200);
+		min-height: 73vh;
 	}
 
-	.admin-nav li{
+	.admin-nav li,
+	.subject-nav li,
+	.user-nav li {
 		padding:5px 0;
 		list-style-type: none;
 		margin-left: 0;
 	}
 
-	.admin-nav ul{
+	.admin-nav ul, 
+	.subject-nav ul,
+	.user-nav ul {
 		text-align: center;
 		padding: 0;
 	}
 
-	.admin-nav hr{
+	.admin-nav hr, 
+	.subject-nav hr,
+	.user-nav hr {
 		width: 7em;
 	}
 
-
-
-	.admin-nav a {
+	.admin-nav a,
+	.subject-nav a,
+	.user-nav a {
 		text-decoration: none;
 		color: white;
 	}
 
-	.admin-nav a:hover{
+	.admin-nav a:hover, 
+	.subject-nav a:hover,
+	.user-nav a:hover {
 		border-bottom: 1px solid white;
 	}
 
-	.admin-header h1{
+	.admin-header h1,
+	.subject-header h1,
+	.user-header h1 {
 		text-align: center;
 	}
 
@@ -784,28 +644,15 @@ label {
 	.pagination-nav li{
 		list-style-type: none;
 		margin: 0 0.5rem;
-	}
+	}	
 
 	.pagination-nav p{
 		margin: 0 auto;
 	}
-	
-	.nav-pagination a{
-		text-decoration: none;
-		border: 1px solid transparent;
-		color: black;
-		padding: 0.3em;
-		border-radius: 0.2em;
-		background-color: #1378bb15;
+
+	.table-btn {
+		margin: 0 35%;
 	}
 
-	.nav-pagination a:hover{
-		border: 1px solid #1378bb;
-		background-color: #1480c87c;
-	}
 
-	.active {
-		color: white !important;
-		background-color: #1480c8 !important;
-	}
 }
