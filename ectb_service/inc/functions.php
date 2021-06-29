@@ -4,15 +4,16 @@
  * check_mdp_format
  *
  * @param  string $password
- * @return void
+ * @return bool
  */
 function check_mdp_format(string $password): bool
 {
     $majuscule = preg_match('@[A-Z]@', $password);
     $minuscule = preg_match('@[a-z]@', $password);
     $chiffre = preg_match('@[0-9]@', $password);
+    $caract = preg_match('@[%, #, :, $, *]@', $password);
 
-    if (!$majuscule || !$minuscule || !$chiffre || strlen($password) < 8) {
+    if (!$majuscule || !$minuscule || !$chiffre || !$caract || strlen($password) < 8) {
         return false;
     } else {
         return true;
@@ -25,6 +26,7 @@ function check_mdp_format(string $password): bool
  * @param mixed $length
  */
 function str_random($length)
+
 {
     // je déclare les caractères autorisés
     $alphabet = "0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJKLMWXCVBN";
